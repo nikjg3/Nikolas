@@ -15,13 +15,13 @@
  You must check if your SDK for the project is set or not, if not, then set you must set it to JDK 11  
  
  1. **How to run the application?**  <br />
- Right click on src/main/java/app/App.java and click on RUN  
+ Read the [Quick start](Quick_Start.md) to boot your application.  
  
  1. **What is Javalin?**   <br />
- [Javalin](https://javalin.io/) is Java lightweight web framework. It lets you to write Java in backend and HTML in frontend. More information is available in [Frameworks page](https://github.com/isys3413-sef-2020-sem1/sef-donadoni/blob/master/docs/Frameworks.md).  
+ [Javalin](https://javalin.io/) is Java lightweight web framework. It lets you to write Java in backend and HTML in frontend. More information is available in [Frameworks page](Frameworks.md).  
  
  1. **What is Maven?**    <br />
- [Maven](https://maven.apache.org/what-is-maven.html) is a framework/tool that help you to organise your code, build your project easily and manage your project  dependencies/libraries. More information is available in [Frameworks page](https://github.com/isys3413-sef-2020-sem1/sef-donadoni/blob/master/docs/Frameworks.md)  
+ [Maven](https://maven.apache.org/what-is-maven.html) is a framework/tool that help you to organise your code, build your project easily and manage your project  dependencies/libraries. More information is available in [Frameworks page](Frameworks.md)  
  
- 1. **What is framework?**  <br />
+ 1. **What is a framework?**  <br />
   Framework is a tool/technology/library that helps you to code in a specific pattern and keep your code organised. It may help you to improve your code quality as well. Its helps you to code with discipline and debug your code easier.  

@@ -3,7 +3,8 @@
 
 ## Code documentation
 
-[Quick Start](/docs) in `docs` folder
+Please read the [Documentation](/docs) in `docs` folder.
+Read the [Quick start](/docs/Quick_Start.md) to boot your application.
 
 ### Users
 
