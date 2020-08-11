@@ -77,6 +77,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            //Simplistic functions to replace Markdown content.
+            let converter = new showdown.Converter();
+            $('.markdown').each(function( index ) {
+                let text = $( this ).text();
+                $(this).html(converter.makeHtml(text));
+            });
+        });
+    </script>
 </div>
 
 
