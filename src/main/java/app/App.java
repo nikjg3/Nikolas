@@ -4,7 +4,9 @@ import app.auth.AccessManager;
 import app.auth.LoginController;
 import app.controllers.users.UsersMeController;
 import app.controllers.welcome.WelcomeController;
+import app.controllers.workouts.WorkoutsCreateController;
 import app.controllers.workouts.WorkoutsListController;
+import app.controllers.workouts.WorkoutsNewController;
 import app.controllers.workouts.WorkoutsShowController;
 import app.models.Role;
 import app.utils.Views;
@@ -48,6 +50,8 @@ public class App {
         app.get(WelcomeController.URL, new WelcomeController());
 
         app.get("/workouts", new WorkoutsListController());
+        app.get("/workouts/new", new WorkoutsNewController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.post("/workouts", new WorkoutsCreateController(), roles(Role.ADMIN)); //Secured for ADMINs only
         app.get("/workouts/:id", new WorkoutsShowController());
 
         //Auth
