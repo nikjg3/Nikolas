@@ -5,10 +5,9 @@
 ## With your IDE
 
 1. Open the project in your IDE (e.g. IntelliJ IDEA)
+1. Set the project as Maven project
 1. Prepare the Database: Run  Using your IDE's "Run Java application", run `app.dao.DBMigrate` (located in `src/main/java/app/dao/DBMigrate.java`)
 1. Using your IDE's "Run Java application", run `app.App` (located in `src/main/java/app/App.java`)
-1. Set the project as Maven project
-1. Click on Maven on left bar, and select Execute maven goal, insert `mvn flyway:migrate`
 1. Go to http://localhost:7000
 1. Happy Coding!
 
@@ -17,7 +16,7 @@
 1. Install [Apache Maven](https://maven.apache.org/)
 1. In your terminal, go to the root of the project. Then run the following commands
 1. `mvn flyway:migrate`
-1. `mvn exec:java`
+1. `mvn compile exec:java`
 1. Go to http://localhost:7000
 1. Happy Coding!
 
@@ -33,7 +32,7 @@
 | src/main/java/app/models/ | Classes for managing the data model and tables | 
 | src/main/java/app/utils/ | Helper and util classes. Includes Views.java for mapping and population views, and PasswordGenerators helper class to encrypt the password | 
 | src/main/resources| Application view files and assets such as CSS, images and database scripts | 
-| src/main/resources/db.migration| Database initialisation SQL scripts for creating tables and inserting values | 
+| src/main/resources/db/migration| Database initialisation SQL scripts for creating tables and inserting values | 
 | src/main/resources/public| Applications assets such as cascading style sheets (CSS), JavaScript files, and images | 
 | src/main/resources/views| View HTML pages, GUI for users and frontend folders| 
 | src/test/java/app/| Application tests, each test has a folder that is referring the code that is testing   | 
