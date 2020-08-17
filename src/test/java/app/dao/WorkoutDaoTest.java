@@ -47,4 +47,17 @@ class WorkoutDaoTest {
         System.out.println(workout.getDescription());
 
     }
+
+    @Test
+    void create() throws SQLException {
+        Workout w = new Workout("First 10K Run", "Your first 10K run");
+        Workout workout = WorkoutDao.INSTANCE.create(w);
+        assertNotNull(workout.getId());
+        assertEquals(3,workout.getId());
+        assertEquals("First 10K Run",workout.getName());
+        assertEquals("Your first 10K run",workout.getDescription());
+
+    }
+
+
 }

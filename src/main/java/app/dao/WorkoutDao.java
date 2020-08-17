@@ -17,6 +17,8 @@ public class WorkoutDao {
 
     private static String SELECT_ALL = "SELECT * FROM workouts";
     private static String SELECT_BY_ID = "SELECT * FROM workouts WHERE id=?";
+    private static String INSERT = "INSERT INTO workouts(name, description) VALUES(?,?)";
+    private static String UPDATE = "UPDATE workouts SET name = ?, description = ? WHERE id=?";
 
 
     private WorkoutDao(){}
@@ -57,11 +59,42 @@ public class WorkoutDao {
         throw new SQLException("No Workout with id = " + id);
     }
 
+
+    /**
+     * Create a new record in the DB.
+     * @param workout
+     * @return
+     * @throws SQLException
+     */
+    public Workout create(Workout workout) throws SQLException {
+        Connection connection = DBUtils.getConnection();
+        PreparedStatement stm = connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
+        stm.setString(1, workout.getName());
+        stm.setString(2, workout.getDescription());
+
+        stm.executeUpdate();
+        ResultSet generatedKeys = stm.getGeneratedKeys();
+        if (generatedKeys.next()) {
+            workout.setId(generatedKeys.getLong(1));
+        } else {
+            connection.close();
+            throw new SQLException("Creating workout failed, no ID obtained.");
+        }
+        connection.close();
+        return workout;
+    }
+
+
+
+    /**
+     * Simple mapping method from a {@link ResultSet} to a {@link Workout} object.
+     * @param rs
+     * @return
+     * @throws SQLException
+     */
     private Workout mapWorkout(ResultSet rs) throws SQLException {
         Workout workout = new Workout(rs.getString(2), StringUtils.javaDecode(rs.getString(3)));
         workout.setId(rs.getLong(1));
         return workout;
     }
-
-
 }
