@@ -1,5 +1,6 @@
 package app.controllers.workouts;
 
+import app.dao.WorkoutDao;
 import app.models.Workout;
 import app.utils.Views;
 import io.javalin.http.Context;
@@ -13,9 +14,9 @@ public class WorkoutShowController implements Handler {
 
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
-        //Long id = context.pathParam("id", Long.class).get();
+        Long id = ctx.pathParam("id", Long.class).get();
 
-        Workout workout = new Workout("Workout one","#This is the Description\n\n second line.");
+        Workout workout = WorkoutDao.INSTANCE.get(id);
         Map<String, Object> model = Views.baseModel(ctx);
         model.put("workout", workout);
         ctx.render(TEMPLATE,model);
