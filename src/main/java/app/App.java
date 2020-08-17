@@ -4,7 +4,7 @@ import app.auth.AccessManager;
 import app.auth.LoginController;
 import app.controllers.users.UsersMeController;
 import app.controllers.welcome.WelcomeController;
-import app.controllers.workouts.WorkoutShowController;
+import app.controllers.workouts.WorkoutsShowController;
 import app.models.Role;
 import app.utils.Views;
 import io.javalin.Javalin;
@@ -47,7 +47,7 @@ public class App {
         app.get(WelcomeController.URL, new WelcomeController());
 
 
-        app.get("/workouts/:id", new WorkoutShowController());
+        app.get("/workouts/:id", new WorkoutsShowController());
 
         //Auth
         app.get("/login", ctx -> {

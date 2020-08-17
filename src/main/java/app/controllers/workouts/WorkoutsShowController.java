@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-public class WorkoutShowController implements Handler {
+public class WorkoutsShowController implements Handler {
     private static final String TEMPLATE = "/views/workouts/show.html";
 
     @Override
