@@ -59,5 +59,18 @@ class WorkoutDaoTest {
 
     }
 
-
+    @Test
+    void update() throws SQLException {
+        Workout workout = WorkoutDao.INSTANCE.create(new Workout("First 10K Run", "Your first 10K run"));
+        assertNotNull(workout);
+        assertEquals("First 10K Run", workout.getName());
+        workout.setName("5K Run");
+        int result = WorkoutDao.INSTANCE.update(workout);
+        //query updated 1 record
+        assertEquals(1, result);
+        //get if back from the db
+        Workout wo2 = WorkoutDao.INSTANCE.get(workout.getId());
+        assertNotNull(wo2);
+        assertEquals("5K Run", wo2.getName());
+    }
 }

@@ -87,6 +87,25 @@ public class WorkoutDao {
 
 
     /**
+     * Update an existing record.
+     * @param workout The workout to update
+     * @return either (1) the row count for SQL Data Manipulation Language (DML) statements
+     *         or (2) 0 for SQL statements that return nothing
+     * @throws SQLException
+     */
+    public int update(Workout workout) throws SQLException {
+        Connection connection = DBUtils.getConnection();
+        PreparedStatement stm = connection.prepareStatement(UPDATE);
+        stm.setString(1, workout.getName());
+        stm.setString(2, workout.getDescription());
+        stm.setLong(3,workout.getId());
+        return stm.executeUpdate();
+    }
+
+
+
+
+    /**
      * Simple mapping method from a {@link ResultSet} to a {@link Workout} object.
      * @param rs
      * @return
