@@ -18,12 +18,11 @@
 
 <!-- Begin THIS page content -->
 <main role="main" class="container ">
-    <h1 th:text="${workout.name}">Workout Name</h1>
-    <h2><a class="btn btn-success" th:href="@{/workouts/{id}/edit(id=${workout.id})}" role="button">Edit Workout</a></h2>
-    <div class="markdown" id="description" th:text="${workout.description}"></div>
-    <div id="workout-programs">
-        <h3>Display here training programs containing this workout</h3>
-    </div>
+    <h1>Edit Workout</h1>
+
+    <form th:action="@{/workouts/{id}(id=${workout.id})}" method="post">
+        <th:block th:include="/views/workouts/_form.html :: form"></th:block>
+    </form>
 </main>
 <!-- End THIS page content -->
 
