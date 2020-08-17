@@ -26,7 +26,7 @@
             <div class="card-body">
                 <h4 class="card-title" th:text="${workout.name}">Card title</h4>
 
-                <p class="card-text" th:text="${#strings.abbreviate(workout.description,120)}">Some quick example text to build on the card title and
+                <p class="card-text markdown" th:text="${#strings.abbreviate(workout.description,120)}">Some quick example text to build on the card title and
                     make up the bulk of the card's content.</p>
                 <a th:href="@{/workouts/{id}(id=${workout.id})}" class="btn btn-outline-info card-link">See More</a>
             </div>
