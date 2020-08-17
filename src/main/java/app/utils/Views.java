@@ -16,20 +16,6 @@ import java.util.Map;
 public class Views {
 
     /**
-     * Root location of html views
-     */
-    private static final String TEMPLATE_BASE = "/views/";
-
-    /**
-     * Use this method to obtain the final path for your templates.
-     * @param template
-     * @return
-     */
-    public static String templatePath(String template) {
-        return TEMPLATE_BASE.concat(template);
-    }
-
-    /**
      * Use this method to populate the model with common information.
      * Eg: model.put("user", getSessionCurrentUser(ctx));
      * @param ctx

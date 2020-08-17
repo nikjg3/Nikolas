@@ -23,7 +23,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/me">User Information</a>
+                    <a class="nav-link" href="/workouts">Workouts</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -43,11 +43,15 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 
             <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
+                <li class="nav-item" th:if="${user_logged_in}">
+                    <a class="nav-link" href="/users/me" th:text="${user.name}">User name</a>
+                </li>
+                <li class="nav-item" th:unless="${user_logged_in}">
                     <p class="navbar-text">
-                        You are logged in as <span class=" text-white font-weight-bold" th:text="${user.name}"></span>
+                        You are <span class=" text-white font-weight-bold" th:text="${user.name}"></span>
                     </p>
+                </li>
+                <li class="nav-item">
                     <a th:unless="${user_logged_in}" class="btn btn-outline-success" href="/login">Login</a>
                     <a th:if="${user_logged_in}" class="btn btn-outline-danger" href="/logout">Logout</a>
                 </li>

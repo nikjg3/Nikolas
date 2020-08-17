@@ -17,7 +17,7 @@ public class WelcomeController implements Handler {
 
     public static final String URL = "/";
 
-    static final String TEMPLATE = Views.templatePath("welcome/index.html");
+    static final String TEMPLATE = "/views/welcome/index.html";
 
     @Override
     public void handle(@NotNull Context context) throws Exception {
