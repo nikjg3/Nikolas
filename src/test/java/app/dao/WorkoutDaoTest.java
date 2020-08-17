@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +28,15 @@ class WorkoutDaoTest {
         flyway.clean();
         //Set up db
         flyway.migrate();
+    }
+
+
+    @Test
+    void getAll() throws SQLException {
+        List<Workout> all = WorkoutDao.INSTANCE.getAll();
+        assertEquals(2,all.size());
+        assertEquals("Basic Workout I", all.get(0).getName());
+        assertEquals("Treadmill Workout I", all.get(1).getName());
     }
 
     @Test

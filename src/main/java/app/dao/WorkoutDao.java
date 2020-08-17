@@ -3,10 +3,9 @@ package app.dao;
 import app.models.Workout;
 import org.h2.util.StringUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkoutDao {
 
@@ -16,11 +15,35 @@ public class WorkoutDao {
      */
     public static final WorkoutDao INSTANCE = new WorkoutDao();
 
+    private static String SELECT_ALL = "SELECT * FROM workouts";
     private static String SELECT_BY_ID = "SELECT * FROM workouts WHERE id=?";
 
 
     private WorkoutDao(){}
 
+    /**
+     * Get all workouts in the DB
+     * @return All workouts
+     * @throws SQLException
+     */
+    public List<Workout> getAll() throws SQLException {
+        Connection connection = DBUtils.getConnection();
+        Statement stm = connection.createStatement();
+        ResultSet rs = stm.executeQuery(SELECT_ALL);
+        List<Workout> workouts = new ArrayList<>();
+        while (rs.next()) {
+            workouts.add(mapWorkout(rs));
+        }
+        connection.close();
+        return workouts;
+    }
+
+    /**
+     * Get ONE workout identified by <code>id</code>
+     * @param id the id of the workout
+     * @return the workout
+     * @throws SQLException
+     */
     public Workout get(Long id) throws SQLException {
         Connection connection = DBUtils.getConnection();
         PreparedStatement stm = connection.prepareStatement(SELECT_BY_ID);
@@ -39,4 +62,6 @@ public class WorkoutDao {
         workout.setId(rs.getLong(1));
         return workout;
     }
+
+
 }
