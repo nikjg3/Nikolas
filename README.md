@@ -1,7 +1,7 @@
-# RMIT ISYS 3413 Group 00
+# RMIT ISYS 3413 Group 25
 
 ## Members
-* SURNAME, GivenName (sXXXX)
+* Yuqing, Wu (s3808626)
 * Grubits, Nikolas (s3786116)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
