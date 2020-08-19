@@ -2,7 +2,7 @@
 
 ## Members
 * SURNAME, GivenName (sXXXX)
-* SURNAME, GivenName (sXXXX)
+* Grubits, Nikolas (s3786116)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 
