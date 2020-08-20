@@ -4,6 +4,7 @@
 * Yuqing, Wu (s3808626)
 * Grubits, Nikolas (s3786116)
 * Chen, Xinyu (s3798356)
+* Lilovac, Basil (s3786614)
 * SURNAME, GivenName (sXXXX)
 
 ## Records
