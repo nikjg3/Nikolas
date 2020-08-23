@@ -1,7 +1,7 @@
 # RMIT ISYS 3413 Group 25
 
 ## Members
-* Yuqing, Wu (s3808626)
+* Wu, Yuqing (s3808626)
 * Grubits, Nikolas (s3786116)
 * Chen, Xinyu (s3798356)
 * Lilovac, Basil (s3786614)
