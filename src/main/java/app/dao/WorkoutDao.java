@@ -19,6 +19,7 @@ public class WorkoutDao {
     private static String SELECT_BY_ID = "SELECT * FROM workouts WHERE id=?";
     private static String INSERT = "INSERT INTO workouts(name, description) VALUES(?,?)";
     private static String UPDATE = "UPDATE workouts SET name = ?, description = ? WHERE id=?";
+    private static String DELETE = "DELETE FROM workouts WHERE id=?";
 
 
     private WorkoutDao(){}
@@ -102,6 +103,20 @@ public class WorkoutDao {
         return stm.executeUpdate();
     }
 
+
+
+    public int delete(Long id)throws SQLException{
+        Connection connection = DBUtils.getConnection();
+        PreparedStatement stm = connection.prepareStatement(DELETE);
+        stm.setLong(1, id);
+        ResultSet rs = stm.executeQuery();
+        if (rs.next()) {
+            Workout m = mapWorkout(rs);
+            throw new SQLException("Delete fail");
+        }
+        connection.close();
+        return 1;//1 mean Delete success
+    }
 
 
 

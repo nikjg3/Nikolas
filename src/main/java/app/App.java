@@ -2,6 +2,7 @@ package app;
 
 import app.auth.AccessManager;
 import app.auth.LoginController;
+import app.controllers.Program.*;
 import app.controllers.users.UsersMeController;
 import app.controllers.welcome.WelcomeController;
 import app.controllers.workouts.*;
@@ -52,6 +53,14 @@ public class App {
         app.get("/workouts/:id/edit", new WorkoutsEditController(), roles(Role.ADMIN)); //Secured for ADMINs only
         app.post("/workouts/:id", new WorkoutsUpdateController(), roles(Role.ADMIN)); //Secured for ADMINs only
         app.get("/workouts/:id", new WorkoutsShowController());
+        app.post("/workouts/:id", new WorkoutsDeleteController(), roles(Role.ADMIN)); //Secured for ADMINs only
+
+        app.get("/programs", new ProgramListController());
+        app.get("/programs/new", new ProgramNewController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.post("/programs", new ProgramCreateController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.get("/programs/:id/edit", new ProgramEditController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.post("/programs/:id", new ProgramUpdateController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.get("/programs/:id", new WorkoutsShowController());
 
         //Auth
         app.get("/login", ctx -> {
