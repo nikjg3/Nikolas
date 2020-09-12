@@ -9,9 +9,10 @@ import java.util.List;
 
 public class ProgramDao {
 
+
     /**
-     * Workout DAO Singleton.
-     * There are better ways to implement Singletons. 
+     * program DAO Singleton.
+     * There are better ways to implement Singletons.
      */
     public static final ProgramDao INSTANCE = new ProgramDao();
 
@@ -40,6 +41,8 @@ public class ProgramDao {
         return programs;
     }
 
+
+
     /**
      * Get ONE program identified by <code>id</code>
      * @param id the id of the program
@@ -56,7 +59,7 @@ public class ProgramDao {
             return m;
         }
         connection.close();
-        throw new SQLException("No Workout with id = " + id);
+        throw new SQLException("No Program with id = " + id);
     }
 
 
@@ -70,7 +73,7 @@ public class ProgramDao {
         Connection connection = DBUtils.getConnection();
         PreparedStatement stm = connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
         stm.setString(1, program.getName());
-        stm.setString(2, program.getInfo());
+        stm.setString(2, program.getDescription());
 
         stm.executeUpdate();
         ResultSet generatedKeys = stm.getGeneratedKeys();
@@ -84,11 +87,9 @@ public class ProgramDao {
         return program;
     }
 
-
-
     /**
      * Update an existing record.
-     * @param program The workout to update
+     * @param program The program to update
      * @return either (1) the row count for SQL Data Manipulation Language (DML) statements
      *         or (2) 0 for SQL statements that return nothing
      * @throws SQLException
@@ -97,16 +98,15 @@ public class ProgramDao {
         Connection connection = DBUtils.getConnection();
         PreparedStatement stm = connection.prepareStatement(UPDATE);
         stm.setString(1, program.getName());
-        stm.setString(2, program.getInfo());
+        stm.setString(2, program.getDescription());
         stm.setLong(3,program.getId());
         return stm.executeUpdate();
     }
 
 
 
-
     /**
-     * Simple mapping method from a {@link ResultSet} to a {@link Workout} object.
+     * Simple mapping method from a {@link ResultSet} to a {@link Program} object.
      * @param rs
      * @return
      * @throws SQLException
@@ -116,4 +116,6 @@ public class ProgramDao {
         program.setId(rs.getLong(1));
         return program;
     }
+
+
 }
