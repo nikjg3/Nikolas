@@ -8,7 +8,9 @@ import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
-
+/**
+ * @author Xinyu Chen, 2020. email: s3798356@student.rmit.edu.au
+ */
 /**
  * Controller to handle the display of one program.
  */
