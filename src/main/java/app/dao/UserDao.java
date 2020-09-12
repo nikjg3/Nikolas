@@ -1,5 +1,6 @@
 package app.dao;
 
+import app.models.Program;
 import app.models.Role;
 import app.models.User;
 
@@ -15,6 +16,7 @@ public class UserDao {
 
     private static final String SELECT_PWD_BY_EMAIL = "SELECT password FROM users WHERE email = ?" ;
     private static final String SELECT_BY_EMAIL = "SELECT email, name, role, id FROM users WHERE email = ?" ;
+    public static  String UPDATE;
     public static UserDao INSTANCE = new UserDao();
 
     private UserDao(){}
@@ -47,4 +49,15 @@ public class UserDao {
         connection.close();
         throw new SQLException("No User with email = " + email);
     }
+
+    public int update(User user) throws SQLException {
+        Connection connection = DBUtils.getConnection();
+        PreparedStatement stm = connection.prepareStatement(UPDATE);
+        stm.setString(1, user.getName());
+        //stm.setString(2, user.getDescription());
+        stm.setLong(3,user.getId());
+        return stm.executeUpdate();
+    }
+
+
 }

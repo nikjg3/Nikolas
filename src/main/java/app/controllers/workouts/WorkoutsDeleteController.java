@@ -1,6 +1,6 @@
-package app.controllers.Program;
+package app.controllers.workouts;
 
-import app.dao.ProgramDao;
+import app.dao.WorkoutDao;
 import app.utils.Views;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -8,14 +8,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-/**
- * @author Xinyu Chen, 2020. email: s3798356@student.rmit.edu.au
- */
-public class ProgramEditController implements Handler {
+public class WorkoutsDeleteController implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
         Map<String, Object> model = Views.baseModel(ctx);
-        model.put("program", ProgramDao.INSTANCE.get(ctx.pathParam("id", Long.class).get()));
+        model.put("workout", WorkoutDao.INSTANCE.delete(ctx.pathParam("id", Long.class).get()));
         ctx.render("/views/workouts/edit.html", model);
     }
+
 }
