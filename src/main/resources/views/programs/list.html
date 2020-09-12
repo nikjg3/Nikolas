@@ -18,23 +18,24 @@
 
 <!-- Begin THIS page content -->
 <main role="main" class="container ">
-    <h1>Restricted Page</h1>
-    <h2>Current User information</h2>
-    <p><b>Name:</b> <span th:text="${user.name}"></span></p><a class="btn btn-success" onclick="username()" role="button">Change User Name</a>
-    <p><b>Email:</b> <span th:text="${user.email}"></span></p><a class="btn btn-success" onclick="email()" role="button">Change Email</a>
-    <p><b>Role:</b> <span th:text="${user.role}"></span></p>
+    <h1>Programs available for you <a class="btn btn-success" href="/programs/new" role="button">Create a new Program</a></h1>
+
+
+    <div class="card-columns">
+        <div th:each="program : ${programs}" class="card">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${program.name}">Card title</h4>
+
+                <p class="card-text markdown" th:text="${#strings.abbreviate(program.description,120)}">Some quick example text to build on the card title and
+                    make up the bulk of the card's content.</p>
+                <a th:href="@{/programs/{id}(id=${program.id})}" class="btn btn-outline-info card-link">See More</a>
+            </div>
+        </div>
+    </div>
 </main>
 <!-- End THIS page content -->
 
-<script>
-    function username() {
 
-    }
-    
-    function email() {
-
-    }
-    </script>
 <!-- Footer is located in common.html -->
 <footer class="footer" th:replace="/views/fragments/common.html :: footer"> </footer>
 

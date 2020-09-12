@@ -6,14 +6,23 @@ package app.models;
 public class Program {
     private String name = null;
     private Long id = null;
-    private String description = null;
+    private String info = null;
+    private String date = null;
 
-    public Program() { }
+    public Program() {
 
-    public Program(String name,  String description) {
-        this.name = name;
-        this.description = description;
     }
+
+    public Program(String name, String data, String info) {
+        this.name = name;
+        this.date = data;
+        this.info = info;
+    }
+    public Program(String name, String info) {
+        this.name = name;
+        this.info = info;
+    }
+
 
     public String getName() { return name; }
 
@@ -23,9 +32,22 @@ public class Program {
 
     public void setId(Long id) { this.id = id; }
 
-    public String getDescription() { return description; }
+    public String getInfo() { return info; }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setInfo(String info) { this.info = info; }
 
+    public String getDate() { return date; }
+
+    public void setDate(String date) { this.date = date; }
+    
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", info=" + info +
+                ", date='" + date + '\'' +
+                '}';
+    }
 
 }

@@ -8,16 +8,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-/**
- * Controller to handle requests to list all workouts.
- */
-public class WorkoutsListController implements Handler {
-    private static final String TEMPLATE = "/views/workouts/list.html";
-
+public class ProgramsEditController implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
         Map<String, Object> model = Views.baseModel(ctx);
-        model.put("workouts", WorkoutDao.INSTANCE.getAll());
-        ctx.render(TEMPLATE,model);
+        model.put("workout", WorkoutDao.INSTANCE.get(ctx.pathParam("id", Long.class).get()));
+        ctx.render("/views/programs/edit.html", model);
     }
 }

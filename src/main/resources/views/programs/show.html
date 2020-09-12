@@ -18,23 +18,16 @@
 
 <!-- Begin THIS page content -->
 <main role="main" class="container ">
-    <h1>Restricted Page</h1>
-    <h2>Current User information</h2>
-    <p><b>Name:</b> <span th:text="${user.name}"></span></p><a class="btn btn-success" onclick="username()" role="button">Change User Name</a>
-    <p><b>Email:</b> <span th:text="${user.email}"></span></p><a class="btn btn-success" onclick="email()" role="button">Change Email</a>
-    <p><b>Role:</b> <span th:text="${user.role}"></span></p>
+    <h1 th:text="${program.name}">Workout Name</h1>
+    <h2><a class="btn btn-success" th:href="@{/programs/{id}/edit(id=${program.id})}" role="button">Edit Workout</a></h2>
+    <div class="markdown" id="description" th:text="${program.description}"></div>
+    <div id="workout-programs">
+        <h3>Display here training programs containing this workout</h3>
+    </div>
 </main>
 <!-- End THIS page content -->
 
-<script>
-    function username() {
 
-    }
-    
-    function email() {
-
-    }
-    </script>
 <!-- Footer is located in common.html -->
 <footer class="footer" th:replace="/views/fragments/common.html :: footer"> </footer>
 
