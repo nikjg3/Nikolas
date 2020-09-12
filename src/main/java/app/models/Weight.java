@@ -1,12 +1,14 @@
 package app.models;
 
-import java.util.Date;
+/**
+ * @author Yuqing Wu, 2020. email: s3808626@student.rmit.edu.au
+ */
 
 public class Weight {
     private Long id = null;
     private String name = null;
     private String wtime = null;
-    //weight change diagram
+
 
     public Weight(String name, String wtime) {
         this.name = name;
