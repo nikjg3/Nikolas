@@ -46,6 +46,13 @@ public class App {
 
         app.get(WelcomeController.URL, new WelcomeController());
 
+        app.get("/programs", new ProgramsListController());
+        app.get("/programs/new", new ProgramsNewController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.post("/programs", new ProgramsCreateController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.get("/programs/:id/edit", new ProgramsEditController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.post("/programs/:id", new ProgramsUpdateController(), roles(Role.ADMIN)); //Secured for ADMINs only
+        app.get("/programs/:id", new ProgramsShowController());
+
         app.get("/workouts", new WorkoutsListController());
         app.get("/workouts/new", new WorkoutsNewController(), roles(Role.ADMIN)); //Secured for ADMINs only
         app.post("/workouts", new WorkoutsCreateController(), roles(Role.ADMIN)); //Secured for ADMINs only
